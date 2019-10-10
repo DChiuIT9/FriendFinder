@@ -1,41 +1,48 @@
-// Dependencies
-// =============================================================
 var express = require("express");
 var path = require("path");
 
-// Sets up the Express App
-// =============================================================
 var app = express();
-var PORT = 3000;
+// var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-var characters = [
+var friends = [
   {
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
+    name: "Ahmed",
+    photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAq7AAAAJDAwYzI4NTQ4LWYwZWUtNGFkYS1hNTYwLTZjYzkwY2ViZDA3OA.jpg",
+    scores: [
+      "5",
+      "1",
+      "4",
+      "4",
+      "5",
+      "1",
+      "2",
+      "5",
+      "4",
+      "1"]
   },
   {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+    name: "Jacob Deming",
+    photo: "https://pbs.twimg.com/profile_images/691785039043022849/oWsy8LNR.jpg",
+    scores: [
+      "4",
+      "2",
+      "5",
+      "1",
+      "3",
+      "2",
+      "2",
+      "1",
+      "3",
+      "2"
+    ]
   },
-  {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
-  }
+
 ];
 
 // Routes
