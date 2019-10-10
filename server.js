@@ -41,8 +41,7 @@ var friends = [
       "3",
       "2"
     ]
-  },
-
+  }
 ];
 
 // Routes
@@ -50,48 +49,34 @@ var friends = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "./app/public/home.html"));
 });
 
-app.get("/add", function(req, res) {
-  res.sendFile(path.join(__dirname, "add.html"));
+app.get("/survey", function(req, res) {
+  res.sendFile(path.join(__dirname, "./app/public/survey.html"));
 });
 
-// Displays all characters
-app.get("/api/characters", function(req, res) {
-  return res.json(characters);
+// Displays all friends
+app.get("/api/friends", function(req, res) {
+  return res.json(friends);
 });
 
-// Displays a single character, or returns false
-app.get("/api/characters/:character", function(req, res) {
-  var chosen = req.params.character;
-
-  console.log(chosen);
-
-  for (var i = 0; i < characters.length; i++) {
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
-    }
-  }
-
-  return res.json(false);
-});
 
 // Create New Characters - takes in JSON input
-app.post("/api/characters", function(req, res) {
+app.post("/api/friends", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newCharacter = req.body;
+  var newfriend = req.body;
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+  newfriend.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newCharacter);
+  console.log(newfriend);
 
-  characters.push(newCharacter);
+  characters.push(newfriend);
 
-  res.json(newCharacter);
+  res.json(newfriend);
 });
 
 // Starts the server to begin listening
