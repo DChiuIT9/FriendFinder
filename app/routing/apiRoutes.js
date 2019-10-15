@@ -13,21 +13,21 @@ module.exports = function(app) {
             ansDiff: Infinity
         }
         var data = req.body;
-        var userscores = data.scores;
-        var totaldifference;
-        // for (var i = 0; i < friends.length; i++) {
-        //     var indexFriends = friends[i];
-        //     totaldifference = 0;
+        var userScores = data.scores;
+        var totalDiff;
 
-        //     for (var j = 0; j < indexFriends.score.length; j++) {
-        //         var indexFriendscore = indexFriends.score[j];
-        //         var indexuserscores = userscores[j];
-        //         totaldifference += Math.abs(parseInt(indexuserscores) - parseInt(indexFriendscore));
-        //         if 
-        //         friends.push
-        //         return 
-        //     }
-        // }
+
+        for (var i = 0; i < friends.length; i++) {
+            var indexFriends = friends[i];
+            totalDiff = 0;
+
+            for (var j = 0; j < indexFriends.score.length; j++) {
+                var indexFriendscores = indexFriends.score[j];
+                var indexUserScores = userScores[j];
+                totalDiff += Math.abs(parseInt(indexUserScores) - parseInt(indexFriendscores));
+            }
+        }
+
     });
 }
 
