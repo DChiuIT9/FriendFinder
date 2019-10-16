@@ -26,7 +26,12 @@ module.exports = function(app) {
                 var indexUserScores = userScores[j];
                 totalDiff += Math.abs(parseInt(indexUserScores) - parseInt(indexFriendscores));
             }
+            if (totalDiff<ansDiff) {
+                indexFriends.score[j]
+            }
         }
+        friends.push(data);
+        res.json(friends[indexFriends.score])
 
     });
 }
